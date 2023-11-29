@@ -51,7 +51,12 @@ if (isset($_GET['vote'])) {
                     <?php echo $hotel['parking'] ? 'Si' : 'No'; ?>
                 </td>
                 <td>
-                    <?php echo $hotel['vote'] ?>
+
+                    <?php echo "<span class='me-1'>{$hotel['vote']}</span>";
+                    for ($i = 0; $i < $hotel['vote']; $i++) {
+                        echo "<i class='fa-solid fa-star text-warning'></i>";
+                    } ?>
+
                 </td>
                 <td>
                     <?php echo $hotel['distance_to_center'] . ' km' ?>
@@ -61,10 +66,6 @@ if (isset($_GET['vote'])) {
 
     </tbody>
 </table>
-
-
-
-
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

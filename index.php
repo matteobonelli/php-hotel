@@ -8,14 +8,23 @@ function park_filter($hotel)
     $parking = $_GET['parking'];
     return $parking === 'all' || $hotel['parking'] == $parking;
 }
+function rating_filter($hotel)
+{
+    $vote = $_GET['vote'];
+    return $vote === 'all' || $hotel['vote'] >= $vote;
+}
 
 if (isset($_GET['parking'])) {
     $hotels = array_filter($hotels, 'park_filter');
 
 }
+
+if (isset($_GET['vote'])) {
+    $hotels = array_filter($hotels, 'rating_filter');
+}
 // var_dump($hotels);
 ?>
-<table class="table text-center">
+<table class="table text-center container">
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -38,12 +47,8 @@ if (isset($_GET['parking'])) {
                 <td>
                     <?php echo $hotel['description'] ?>
                 </td>
-                <td>
-                    <?php if ($hotel['parking']) {
-                        echo 'Si';
-                    } else {
-                        echo 'No';
-                    } ?>
+                <td class="text-light <?php echo $hotel['parking'] ? 'bg-success' : 'bg-danger'; ?>">
+                    <?php echo $hotel['parking'] ? 'Si' : 'No'; ?>
                 </td>
                 <td>
                     <?php echo $hotel['vote'] ?>

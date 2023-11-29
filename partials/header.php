@@ -14,10 +14,10 @@ include __DIR__ . '/../Model/db.php';
     <title>PHP Hotel</title>
 </head>
 
-<body class="container">
-    <header class="mt-4 mb-5">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
+<body>
+    <header class="bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
                 <a class="navbar-brand" href="index.php">Hotels</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -26,9 +26,17 @@ include __DIR__ . '/../Model/db.php';
                 </button>
                 <form class="d-flex" role="select">
                     <select class="form-select me-2" type="select" name="parking">
-                        <option value="all">All</option>
+                        <option value="all">Tutti gli Hotel</option>
                         <option value="1">Hotel con parcheggio</option>
                         <option value="0">Hotel senza parcheggio</option>
+                    </select>
+                    <select class="form-select me-2" type="select" name="vote">
+                        <option value="all">Tutti gli Hotel</option>
+                        <option value="1">1 Stella o più</option>
+                        <option value="2">2 Stelle o più</option>
+                        <option value="3">3 Stelle o più</option>
+                        <option value="4">4 Stelle o più</option>
+                        <option value="5">5 Stelle</option>
                     </select>
                     <button class="btn btn-primary" type="submit">Cerca</button>
                 </form>

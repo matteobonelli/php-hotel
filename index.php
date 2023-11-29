@@ -2,8 +2,20 @@
 include __DIR__ . '/partials/header.php';
 
 $counter = 0;
+
+function park_filter($hotel)
+{
+    $parking = $_GET['parking'];
+    return $parking === 'all' || $hotel['parking'] == $parking;
+}
+
+if (isset($_GET['parking'])) {
+    $hotels = array_filter($hotels, 'park_filter');
+
+}
+// var_dump($hotels);
 ?>
-<table class="table">
+<table class="table text-center">
     <thead>
         <tr>
             <th scope="col">#</th>

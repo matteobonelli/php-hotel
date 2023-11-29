@@ -51,12 +51,10 @@ if (isset($_GET['vote'])) {
                     <?php echo $hotel['parking'] ? 'Si' : 'No'; ?>
                 </td>
                 <td>
-
-                    <?php echo "<span class='me-1'>{$hotel['vote']}</span>";
+                    <?php
                     for ($i = 0; $i < $hotel['vote']; $i++) {
                         echo "<i class='fa-solid fa-star text-warning'></i>";
                     } ?>
-
                 </td>
                 <td>
                     <?php echo $hotel['distance_to_center'] . ' km' ?>
